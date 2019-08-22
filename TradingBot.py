@@ -86,12 +86,12 @@ def main(argv):
         if len(local_max) > 0:
             if not trade_placed:
                 if data_points[-2]["price"] > current_resistance:
-                    print ("BUY ORDER")
-                    order_number = poloniex.buy(currency_pair, last_pair_price, 0.1)
-                    trade_placed = True
-                elif data_points[-2]["price"] < current_resistance:
                     print ("SELL ORDER")
                     order_number = poloniex.sell(currency_pair, last_pair_price, 0.1)
+                    trade_placed = True
+                elif data_points[-2]["price"] < current_resistance:
+                    print ("BUY ORDER")
+                    order_number = poloniex.buy(currency_pair, last_pair_price, 0.1)
                     trade_placed = True
                 else:
                     print ("EXIT TRADE")
